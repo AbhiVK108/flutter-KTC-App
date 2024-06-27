@@ -1,0 +1,44 @@
+name: ktc_app
+version: 1.0.0+1
+publish_to: none
+description: A new Flutter project.
+environment: 
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.6
+  get: 4.6.6
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: ^3.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+  assets:
+   - assets/logo.jpg
+   - assets/logo.png
+   - assets/action.png
+   - assets/sales.png
+   - assets/trend.png
+   - assets/one-day.png
+   - assets/month.png
+   - assets/calendar.png
+   - assets/customer-service.png
+   - assets/whatsapp.png
+   - assets/bin.png
+   - assets/pen.png
+
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts\Montserrat-Regular.ttf
+        - asset: fonts\Montserrat-ExtraBold.ttf
+        - asset: fonts\Montserrat-SemiBold.ttf
+        - asset: fonts\Montserrat-Light.ttf
+        - asset: fonts\Montserrat-ExtraBoldItalic.ttf
+        - asset: fonts\Montserrat-BoldItalic.ttf
+
