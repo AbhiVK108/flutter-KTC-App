@@ -10,6 +10,8 @@ dependencies:
   get: 4.6.6
   flutter: 
     sdk: flutter
+  flutter_sticky_header: ^0.6.5
+  flutter_pickers: ^2.1.9
 
 dev_dependencies: 
   flutter_lints: ^3.0.0
@@ -27,7 +29,7 @@ flutter:
    - assets/one-day.png
    - assets/month.png
    - assets/calendar.png
-   - assets/customer-service.png
+   - assets/diversity.png
    - assets/whatsapp.png
    - assets/bin.png
    - assets/pen.png

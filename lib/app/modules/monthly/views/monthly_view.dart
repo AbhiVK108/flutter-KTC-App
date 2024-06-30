@@ -1,14 +1,15 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: unused_import, unused_local_variable, use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-// import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:ktc_app/app/core/app_config/app_colors.dart';
 import 'package:ktc_app/app/core/app_config/app_utils.dart';
 import 'package:ktc_app/app/routes/app_pages.dart';
-import '../controllers/sales_controller.dart';
 
-class SalesView extends GetView<SalesController> {
+import '../controllers/monthly_controller.dart';
+
+class MonthlyView extends GetView<MonthlyController> {
   @override
   Widget build(BuildContext context) {
     final salesCardText = Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -28,7 +29,7 @@ class SalesView extends GetView<SalesController> {
         backgroundColor: Colors.indigo[400],
         centerTitle: true,
         title: Text(
-          "Total Sales",
+          "2024 Sales",
           style: Theme.of(context).textTheme.headlineLarge?.copyWith(
               fontFamily: 'Montserrat',
               fontSize: 23.0,
@@ -50,9 +51,13 @@ class SalesView extends GetView<SalesController> {
             child: Padding(
               padding: EdgeInsets.only(top: 90),
               child: Column(
-                children: List.generate(5, (index) {
+                children: List.generate(1, (index) {
                   return Column(
                     children: [
+                      Divider(
+                        height: 0.5,
+                        color: Colors.black,
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Card(
@@ -64,15 +69,10 @@ class SalesView extends GetView<SalesController> {
                             child: Column(
                               children: [
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      'No: 1002',
-                                      style: salesCardTextt,
-                                    ),
-                                    Text(
-                                      'Apr 15, 2024',
+                                      'Total April 2024 Sales',
                                       style: salesCardTextt,
                                     )
                                   ],
@@ -89,132 +89,94 @@ class SalesView extends GetView<SalesController> {
                                 ),
                                 Row(
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15.0),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text('Name:', style: salesCardTextt),
-                                          Text('Phone No:',
-                                              style: salesCardTextt),
-                                          Text(
-                                            'Address:',
-                                            style: salesCardTextt,
-                                          ),
-                                          Text(
-                                            'Particulars:',
-                                            style: salesCardTextt,
-                                          ),
-                                          Text(
-                                            'Item::',
-                                            style: salesCardTextt,
-                                          ),
-                                          Text(
-                                            'IMEI:',
-                                            style: salesCardTextt,
-                                          ),
-                                          Text(
-                                            'Estimated Amount Rs:',
-                                            style: salesCardTextt,
-                                          ),
-                                          Text(
-                                            'Advance Rs:',
-                                            style: salesCardTextt,
-                                          ),
-                                          Text(
-                                            'Balance Rs:',
-                                            style: salesCardTextt,
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text(
+                                          'Total',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineLarge
+                                              ?.copyWith(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.normal,
+                                                  color: Colors.indigo),
+                                        ),
+                                        subtitle: Text(
+                                          '2250',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineLarge
+                                              ?.copyWith(
+                                                fontFamily: 'Montserrat',
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle: FontStyle.normal,
+                                              ),
+                                        ),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 15.0),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Gajula Krishna ',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            '9849410172',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            'Karimnagar',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            'Testing Sms',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            'Bl 5c Battary',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            'Karimnagar',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            '250',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            '250',
-                                            style: salesCardText,
-                                          ),
-                                          Text(
-                                            '0',
-                                            style: salesCardText,
-                                          ),
-                                        ],
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text(
+                                          'Advance',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineLarge
+                                              ?.copyWith(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.normal,
+                                                  color: Colors.indigo),
+                                        ),
+                                        subtitle: Text(
+                                          '1200',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineLarge
+                                              ?.copyWith(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.normal),
+                                        ),
                                       ),
-                                    )
+                                    ),
+                                    Expanded(
+                                      child: ListTile(
+                                        title: Text(
+                                          'Balance',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineLarge
+                                              ?.copyWith(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.normal,
+                                                  color: Colors.indigo),
+                                        ),
+                                        subtitle: Text(
+                                          '1000',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineLarge
+                                              ?.copyWith(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 18.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.normal),
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                                 SizedBox(
                                   height: 8.0,
-                                ),
-                                Divider(
-                                  height: 1.5,
-                                  color: Colors.black,
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    IconButton(
-                                        onPressed: null,
-                                        icon: Icon(
-                                          Icons.edit,
-                                          size: 25.0,
-                                          color: AppColor.blueThemeColor,
-                                        )),
-                                    IconButton(
-                                        onPressed: null,
-                                        icon: Icon(
-                                          Icons.delete,
-                                          size: 25.0,
-                                          color: Colors.red,
-                                        )),
-                                    Image.asset(
-                                      'assets/whatsapp.png',
-                                      height: 25.0,
-                                      width: 25.0,
-                                    )
-                                  ],
                                 ),
                               ],
                             ),
@@ -321,31 +283,9 @@ class SalesView extends GetView<SalesController> {
               ),
             ),
           ),
-          Positioned(
-              bottom: 25.0,
-              right: 0.0,
-              child: Padding(
-                padding: const EdgeInsets.only(right: 22.0, top: 12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    FloatingActionButton(
-                      onPressed: () {
-                        Get.toNamed(Routes.NEW_SALE);
-                      },
-                      backgroundColor: Colors.indigo[400],
-                      child: Icon(
-                        Icons.add,
-                        size: 30,
-                        color: AppColor.white,
-                      ),
-                    )
-                  ],
-                ),
-              )),
         ],
       ),
-      bottomNavigationBar:  BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.indigo[400],

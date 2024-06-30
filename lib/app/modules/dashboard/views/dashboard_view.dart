@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ktc_app/app/core/app_config/app_colors.dart';
+import 'package:ktc_app/app/core/app_config/app_utils.dart';
 import 'package:ktc_app/app/routes/app_pages.dart';
 // import 'package:ktc_app/app/core/app_config/app_colors.dart';
 
@@ -12,13 +13,29 @@ import '../controllers/dashboard_controller.dart';
 // ignore: must_be_immutable
 class DashboardView extends GetView<DashboardController> {
   var data = [
-    {"title": "assets/action.png", "subtitle": "ITEMS","routes":Routes.ITEMS_LIST},
-    {"title": "assets/sales.png", "subtitle": "SALES"},
-    {"title": "assets/trend.png", "subtitle": "TOP SALES"},
-    {"title": "assets/one-day.png", "subtitle": "DAY SALES"},
-    {"title": "assets/month.png", "subtitle": "MONTHLY"},
-    {"title": "assets/calendar.png", "subtitle": "YEARLY"},
-    {"title": "assets/customer-service.png", "subtitle": "CUSTOMERS","routes":Routes.CUSTOMERS},
+    {
+      "title": "assets/action.png",
+      "subtitle": "ITEMS",
+      "routes": Routes.ITEMS_LIST
+    },
+    {"title": "assets/sales.png", "subtitle": "SALES", "routes": Routes.SALES},
+    {"title": "assets/trend.png", "subtitle": "TOP SALES","routes":Routes.TOP_SALES},
+    {"title": "assets/one-day.png", "subtitle": "DAY SALES","routes":Routes.DAY_SALES},
+    {
+      "title": "assets/month.png",
+      "subtitle": "MONTHLY",
+      "routes": Routes.MONTHLY
+    },
+    {
+      "title": "assets/calendar.png",
+      "subtitle": "YEARLY",
+      "routes": Routes.YEARLY
+    },
+    {
+      "title": "assets/diversity.png",
+      "subtitle": "CUSTOMERS",
+      "routes": Routes.CUSTOMERS
+    },
   ];
 
   DashboardView({super.key});
@@ -27,12 +44,12 @@ class DashboardView extends GetView<DashboardController> {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-     
       body: Container(
         color: Colors.indigo[400],
         height: height,
         width: width,
         child: SingleChildScrollView(
+          physics: NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               Container(
@@ -80,7 +97,6 @@ class DashboardView extends GetView<DashboardController> {
                     SizedBox(
                       height: 5.0,
                     ),
-                  
                   ],
                 ),
               ),
@@ -106,7 +122,8 @@ class DashboardView extends GetView<DashboardController> {
                       return Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: GestureDetector(
-                            onTap: () => Get.toNamed(data[index]["routes"].toString()),
+                            onTap: () =>
+                                Get.toNamed(data[index]["routes"].toString()),
                             child: Card(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(25.0)),
@@ -145,7 +162,7 @@ class DashboardView extends GetView<DashboardController> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:  BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.indigo[400],
@@ -153,12 +170,22 @@ class DashboardView extends GetView<DashboardController> {
           unselectedItemColor: Colors.white,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: GestureDetector(
+                onTap: () => Get.toNamed(Routes.DASHBOARD),
+                child: Icon(Icons.home),
+              ),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
                 icon: Icon(Icons.download), label: 'Downloads'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(
+                icon: GestureDetector(
+                  onTap: () {
+                    AppUtil.showSearchDialog(context);
+                  },
+                  child: Icon(Icons.search),
+                ),
+                label: 'Search'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: 'Settings'),
             BottomNavigationBarItem(

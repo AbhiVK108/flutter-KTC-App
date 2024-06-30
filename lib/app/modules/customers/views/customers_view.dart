@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ktc_app/app/core/app_config/app_colors.dart';
+import 'package:ktc_app/app/core/app_config/app_utils.dart';
 import 'package:ktc_app/app/routes/app_pages.dart';
 // import 'package:ktc_app/app/core/app_config/default_widgets.dart';
 
@@ -15,19 +16,19 @@ class CustomersView extends GetView<CustomersController> {
     {
       "leading": "Vijay",
       "title": "9963873607",
-      "price": "300",
+      "price": "₹ 300",
       "trailing": "assets/whatsapp.png"
     },
     {
       "leading": "Swamy",
       "title": "9490043228",
-      "price": "700",
+      "price": "₹ 700",
       "trailing": "assets/whatsapp.png"
     },
     {
       "leading": "Krishna",
       "title": "9849410172",
-      "price": "250",
+      "price": "₹ 250",
       "trailing": "assets/whatsapp.png"
     }
   ];
@@ -38,6 +39,16 @@ class CustomersView extends GetView<CustomersController> {
     return Scaffold(
       backgroundColor: AppColor.white,
       appBar: AppBar(
+        title: Text(
+          "Customers",
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+              fontFamily: 'Montserrat',
+              fontSize: 23.0,
+              fontWeight: FontWeight.w800,
+              fontStyle: FontStyle.italic,
+              color: Colors.white),
+        ),
+        centerTitle: true,
         backgroundColor: Colors.indigo[400],
         leading: IconButton(
             onPressed: () => Get.toNamed(Routes.DASHBOARD),
@@ -53,32 +64,12 @@ class CustomersView extends GetView<CustomersController> {
             SizedBox(
               height: 10.0,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Customers",
-                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                      fontFamily: 'Montserrat',
-                      fontSize: 23.0,
-                      fontWeight: FontWeight.w800,
-                      fontStyle: FontStyle.italic),
-                ),
-                SizedBox(
-                  width: 8.0,
-                ),
-                Icon(
-                  Icons.people,
-                  size: 35,
-                )
-              ],
-            ),
             SizedBox(
               height: 15.0,
             ),
             Container(
               color: Colors.white,
-              height: 660,
+              height: 695,
               child: ListView.builder(
                 itemCount: customersData.length,
                 itemBuilder: (context, index) {
@@ -152,7 +143,9 @@ class CustomersView extends GetView<CustomersController> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 22.0, top: 12.0),
+              padding: const EdgeInsets.only(
+                right: 22.0,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -178,13 +171,23 @@ class CustomersView extends GetView<CustomersController> {
           selectedItemColor: Colors.purple[50],
           unselectedItemColor: Colors.white,
           items: [
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () => Get.toNamed(Routes.DASHBOARD),
+                child: Icon(Icons.home),
+              ),
               label: 'Home',
             ),
             const BottomNavigationBarItem(
                 icon: Icon(Icons.download), label: 'Downloads'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(
+                icon: GestureDetector(
+                  onTap: () {
+                    AppUtil.showSearchDialog(context);
+                  },
+                  child: Icon(Icons.search),
+                ),
+                label: 'Search'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: 'Settings'),
             BottomNavigationBarItem(

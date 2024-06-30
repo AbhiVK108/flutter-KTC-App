@@ -1,9 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ktc_app/app/core/app_config/app_colors.dart';
 import 'package:ktc_app/app/core/app_config/app_sizes.dart';
-
+import 'package:ktc_app/app/routes/app_pages.dart';
 
 import '../controllers/forget_pass_controller.dart';
 
@@ -12,30 +14,25 @@ class ForgetPassView extends GetView<ForgetPassController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      backgroundColor: Colors.indigo[400],
-      centerTitle: true,
-      title: Text(
-        'New Sale',
-        style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-            fontFamily: 'Montserrat',
-            fontSize: 21.0,
-            fontWeight: FontWeight.w800,
-            fontStyle: FontStyle.normal,
-            color: AppColor.white),
-      ),
-      actions: [
-        IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.add,
+        backgroundColor: Colors.indigo[400],
+        centerTitle: true,
+        title: Text(
+          '',
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+              fontFamily: 'Montserrat',
+              fontSize: 21.0,
+              fontWeight: FontWeight.w800,
+              fontStyle: FontStyle.normal,
+              color: AppColor.white),
+        ),
+        leading: IconButton(
+            onPressed: () => Get.toNamed(Routes.LOGIN),
+            icon: Icon(
+              Icons.arrow_back,
               size: 30,
-              color: AppColor.white,
+              color: Colors.white,
             )),
-        const SizedBox(
-          width: 15.0,
-        )
-      ],
-    ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(

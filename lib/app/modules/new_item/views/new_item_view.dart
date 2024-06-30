@@ -1,8 +1,11 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ktc_app/app/core/app_config/app_colors.dart';
 import 'package:ktc_app/app/core/app_config/app_sizes.dart';
+import 'package:ktc_app/app/core/app_config/app_utils.dart';
 import 'package:ktc_app/app/routes/app_pages.dart';
 
 import '../controllers/new_item_controller.dart';
@@ -16,7 +19,7 @@ class NewItemView extends GetView<NewItemController> {
         backgroundColor: Colors.indigo[400],
         centerTitle: true,
         leading: IconButton(
-            onPressed: () => Get.toNamed(Routes.DASHBOARD),
+            onPressed: () => Get.toNamed(Routes.ITEMS_LIST),
             icon: Icon(
               Icons.arrow_back,
               size: 30,
@@ -77,13 +80,23 @@ class NewItemView extends GetView<NewItemController> {
           selectedItemColor: Colors.purple[50],
           unselectedItemColor: Colors.white,
           items: [
-            const BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+            BottomNavigationBarItem(
+              icon: GestureDetector(
+                onTap: () => Get.toNamed(Routes.DASHBOARD),
+                child: Icon(Icons.home),
+              ),
               label: 'Home',
             ),
             const BottomNavigationBarItem(
                 icon: Icon(Icons.download), label: 'Downloads'),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+            BottomNavigationBarItem(
+                icon: GestureDetector(
+                  onTap: () {
+                    AppUtil.showSearchDialog(context);
+                  },
+                  child: Icon(Icons.search),
+                ),
+                label: 'Search'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.settings), label: 'Settings'),
             BottomNavigationBarItem(

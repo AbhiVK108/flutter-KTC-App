@@ -1,7 +1,9 @@
+// ignore_for_file: unnecessary_overrides
+
 import 'package:get/get.dart';
 
 class ForgetPassController extends GetxController {
-  //TODO: Implement ForgetPassController
+
 
   final count = 0.obs;
   @override
