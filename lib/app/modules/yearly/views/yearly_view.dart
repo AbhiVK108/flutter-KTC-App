@@ -11,7 +11,6 @@ import '../controllers/yearly_controller.dart';
 class YearlyView extends GetView<YearlyController> {
   @override
   Widget build(BuildContext context) {
-
     final salesCardTextt = Theme.of(context).textTheme.headlineLarge?.copyWith(
         fontFamily: 'Montserrat',
         fontSize: 14.5,

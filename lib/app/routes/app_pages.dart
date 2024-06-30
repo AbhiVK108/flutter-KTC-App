@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names, prefer_const_constructors
-
 import 'package:get/get.dart';
 
 import 'package:ktc_app/app/modules/customers/bindings/customers_binding.dart';
@@ -24,10 +22,14 @@ import 'package:ktc_app/app/modules/new_sale/bindings/new_sale_binding.dart';
 import 'package:ktc_app/app/modules/new_sale/views/new_sale_view.dart';
 import 'package:ktc_app/app/modules/sales/bindings/sales_binding.dart';
 import 'package:ktc_app/app/modules/sales/views/sales_view.dart';
+import 'package:ktc_app/app/modules/splash_screen/bindings/splash_screen_binding.dart';
+import 'package:ktc_app/app/modules/splash_screen/views/splash_screen_view.dart';
 import 'package:ktc_app/app/modules/top_sales/bindings/top_sales_binding.dart';
 import 'package:ktc_app/app/modules/top_sales/views/top_sales_view.dart';
 import 'package:ktc_app/app/modules/yearly/bindings/yearly_binding.dart';
 import 'package:ktc_app/app/modules/yearly/views/yearly_view.dart';
+
+// ignore_for_file: constant_identifier_names, prefer_const_constructors
 
 // import 'package:ktc_app/app/modules/demo/bindings/demo_binding.dart';
 // import 'package:ktc_app/app/modules/demo/views/demo_view.dart';
@@ -37,7 +39,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.SPLASH_SCREEN;
 
   static final routes = [
     GetPage(
@@ -109,6 +111,11 @@ class AppPages {
       name: _Paths.DAY_SALES,
       page: () => DaySalesView(),
       binding: DaySalesBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH_SCREEN,
+      page: () => SplashScreenView(),
+      binding: SplashScreenBinding(),
     ),
   ];
 }
