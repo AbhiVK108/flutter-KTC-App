@@ -48,19 +48,7 @@ class ItemsListView extends GetView<DashboardController> {
           const SizedBox(
             height: 10.0,
           ),
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //   children: [
-          //     Text(
-          //       "Items List",
-          //       style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-          //           fontFamily: 'Montserrat',
-          //           fontSize: 23.0,
-          //           fontWeight: FontWeight.w800,
-          //           fontStyle: FontStyle.italic),
-          //     ),
-          //   ],
-          // ),
+  
           const SizedBox(
             height: 15.0,
           ),
@@ -158,8 +146,8 @@ class ItemsListView extends GetView<DashboardController> {
               ),
               label: 'Home',
             ),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.download), label: 'Downloads'),
+             BottomNavigationBarItem(
+                icon: GestureDetector(onTap: ()=>Get.toNamed(Routes.EXPORT),child: Icon(Icons.download),), label: 'Downloads'),
             BottomNavigationBarItem(
                 icon: GestureDetector(
                   onTap: () {

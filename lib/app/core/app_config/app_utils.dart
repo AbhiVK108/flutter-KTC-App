@@ -6,7 +6,8 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:ktc_app/app/routes/app_pages.dart';
 
 class AppUtil {
-  static bottomNavigator() {
+  
+  static  bottomNavigator(BuildContext context) {
     BottomNavigationBar(
         elevation: 0,
         type: BottomNavigationBarType.fixed,
@@ -41,7 +42,7 @@ class AppUtil {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Search',
+            'Serial Number/Phone Number',
             style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                 fontFamily: 'Montserrat',
                 fontSize: 19.0,
@@ -54,7 +55,7 @@ class AppUtil {
             child: TextField(
               decoration: InputDecoration(
                   // suffixIcon: Icon(Icons.search),
-                  hintText: 'Search...',
+                  hintText: 'Serial Number/Phone Number',
                   hintStyle: Theme.of(context)
                       .textTheme
                       .titleMedium

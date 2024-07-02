@@ -21,6 +21,8 @@ abstract class Routes {
   static const TOP_SALES = _Paths.TOP_SALES;
   static const DAY_SALES = _Paths.DAY_SALES;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
+  static const EXPORT = _Paths.EXPORT;
+  static const NAVIGATIONS = _Paths.NAVIGATIONS;
 }
 
 abstract class _Paths {
@@ -39,4 +41,6 @@ abstract class _Paths {
   static const TOP_SALES = '/top-sales';
   static const DAY_SALES = '/day-sales';
   static const SPLASH_SCREEN = '/splash-screen';
+  static const EXPORT = '/export';
+  static const NAVIGATIONS = '/navigations';
 }

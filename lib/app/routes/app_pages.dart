@@ -6,6 +6,8 @@ import 'package:ktc_app/app/modules/dashboard/bindings/dashboard_binding.dart';
 import 'package:ktc_app/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:ktc_app/app/modules/day_sales/bindings/day_sales_binding.dart';
 import 'package:ktc_app/app/modules/day_sales/views/day_sales_view.dart';
+import 'package:ktc_app/app/modules/export/bindings/export_binding.dart';
+import 'package:ktc_app/app/modules/export/views/export_view.dart';
 import 'package:ktc_app/app/modules/forget_pass/bindings/forget_pass_binding.dart';
 import 'package:ktc_app/app/modules/forget_pass/views/forget_pass_view.dart';
 import 'package:ktc_app/app/modules/home/bindings/home_binding.dart';
@@ -16,6 +18,8 @@ import 'package:ktc_app/app/modules/login/bindings/login_binding.dart';
 import 'package:ktc_app/app/modules/login/views/login_view.dart';
 import 'package:ktc_app/app/modules/monthly/bindings/monthly_binding.dart';
 import 'package:ktc_app/app/modules/monthly/views/monthly_view.dart';
+// import 'package:ktc_app/app/modules/navigations/bindings/navigations_binding.dart';
+// import 'package:ktc_app/app/modules/navigations/views/navigations_view.dart';
 import 'package:ktc_app/app/modules/new_item/bindings/new_item_binding.dart';
 import 'package:ktc_app/app/modules/new_item/views/new_item_view.dart';
 import 'package:ktc_app/app/modules/new_sale/bindings/new_sale_binding.dart';
@@ -117,5 +121,15 @@ class AppPages {
       page: () => SplashScreenView(),
       binding: SplashScreenBinding(),
     ),
+    GetPage(
+      name: _Paths.EXPORT,
+      page: () => ExportView(),
+      binding: ExportBinding(),
+    ),
+    // GetPage(
+    //   name: _Paths.NAVIGATIONS,
+    //   page: () => NavigationsView(child: (){},),
+    //   binding: NavigationsBinding(),
+    // ),
   ];
 }

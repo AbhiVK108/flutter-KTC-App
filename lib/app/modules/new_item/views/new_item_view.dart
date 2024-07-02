@@ -87,8 +87,8 @@ class NewItemView extends GetView<NewItemController> {
               ),
               label: 'Home',
             ),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.download), label: 'Downloads'),
+             BottomNavigationBarItem(
+                icon: GestureDetector(onTap: ()=>Get.toNamed(Routes.EXPORT),child: Icon(Icons.download),), label: 'Downloads'),
             BottomNavigationBarItem(
                 icon: GestureDetector(
                   onTap: () {

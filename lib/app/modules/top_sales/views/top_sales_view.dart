@@ -197,8 +197,8 @@ class TopSalesView extends GetView<TopSalesController> {
               ),
               label: 'Home',
             ),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.download), label: 'Downloads'),
+             BottomNavigationBarItem(
+                icon: GestureDetector(onTap: ()=>Get.toNamed(Routes.EXPORT),child: Icon(Icons.download),), label: 'Downloads'),
             BottomNavigationBarItem(
                 icon: GestureDetector(
                   onTap: () {
@@ -216,6 +216,7 @@ class TopSalesView extends GetView<TopSalesController> {
                 ),
                 label: 'Signout')
           ]),
+     
     );
   }
 }
